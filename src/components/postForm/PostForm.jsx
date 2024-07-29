@@ -2,7 +2,12 @@ import React, { useCallback, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { service } from './../../appwrite/config';
+import service from '../../appwrite/config';
+import Input from '../Input';
+import RTE from '../RTE';
+import Select from '../Select';
+import Button from '../Button';
+
 
 
 function PostForm({ post }) {
@@ -14,7 +19,6 @@ function PostForm({ post }) {
             status: post?.status || 'active'
         }
     });
-
     const navigate = useNavigate();
     const userData = useSelector(state => state.auth.userData)
 

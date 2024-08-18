@@ -7,7 +7,7 @@ export class Service {
   bucket;
   constructor() {
     this.client = this.client
-      .setEndpoint(envConfig.appwriteProjectId)
+      .setEndpoint(envConfig.appwriteUrl)
       .setProject(envConfig.appwriteProjectId);
     this.databases = new Databases(this.client);
     this.bucket = new Storage(this.client);
@@ -77,9 +77,9 @@ export class Service {
     }
   }
 
-  async getPosts(queries = [Query.equal("status", "Active")]) {
+  async getPosts(queries = [Query.equal("status", "active")]) {
     try {
-      return await this.databases.getDocument(
+      return await this.databases.listDocuments(
         envConfig.appwriteDatabaseId,
         envConfig.appwriteCollectionId,
         queries
@@ -89,6 +89,7 @@ export class Service {
       return false;
     }
   }
+
 
   // file upload
   async uploadFile(file) {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import service from '../appwrite/config';
 import { Container, PostForm } from '../components';
@@ -7,6 +7,7 @@ function EditPost() {
     const [post, setPost] = useState(null);
     const { slug } = useParams();
     const navigate = useNavigate();
+    console.log(slug);
 
     useEffect(() => {
       if(slug) {

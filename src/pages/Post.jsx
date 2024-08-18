@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import service from '../appwrite/config';
-import { Button } from '../components';
+import { Button, Container } from '../components';
+import parse from 'html-react-parser'
 
 function Post() {
     const [post, setPost] = useState(null)
